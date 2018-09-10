@@ -19,25 +19,16 @@ git clone https://github.com/mirzacengic/bambu
 ```
 
 
+
+
 #### TODO:  
 
 - Prepare predictors
 - Downloading data (script for retrieving it from GBIF)
+- Bash script for array jobs with PBS
 
-The goal of Bambu is to ...
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+#### Downloading data from GBIF
 
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+Script *./bla.R* downloads additional data on species presences from GBIF.
+- Add more description
