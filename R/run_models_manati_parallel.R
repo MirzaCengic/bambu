@@ -112,7 +112,7 @@ cat("Getting species data", "\n")
 ###############
 # biomod part #
 ###############
-
+species = "Chusquea"
 bambu_species_single <- bambu_data %>%
   dplyr::filter(Name_cleaned == species)
 
@@ -169,7 +169,8 @@ eval_values <- model_out %>%
   get_evaluations() %>%
   as.data.frame() %>%
   select(contains("Testing.data")) %>%
-  mutate(Var = row.names(.)) %>%
+  mutate(Var = row.names(.),
+         sp_name = species) %>%
   select(Var, everything())
 
 write.csv(eval_values, paste0(csvs_folder, "/Model_assessment_", str_replace(species, " ", "_"), ".csv"),
@@ -178,7 +179,8 @@ write.csv(eval_values, paste0(csvs_folder, "/Model_assessment_", str_replace(spe
 var_imp_values <- model_out %>%
   get_variables_importance() %>%
   as.data.frame() %>%
-  mutate(Var = row.names(.)) %>%
+  mutate(Var = row.names(.), 
+         sp_name = species) %>%
   select(Var, everything())
 
 write.csv(var_imp_values, paste0(csvs_folder, "/EMout_varimp_", str_replace(species, " ", "_"), ".csv"),
@@ -213,7 +215,10 @@ eval_values_ensemble <- ensemble_model_out %>%
   get_evaluations() %>%
   as.data.frame() %>%
   select(contains("Testing.data")) %>%
-  mutate(Var = row.names(.)) %>%
+  transmute(Var = row.names(.),
+         em_mean = .[[1]],
+         em_wmean = .[[2]],
+         sp_name = species) %>%
   select(Var, everything())
 
 write.csv(eval_values_ensemble, paste0(csvs_folder, "/Ensemble_model_assessment_", str_replace(species, " ", "_"), ".csv"),
