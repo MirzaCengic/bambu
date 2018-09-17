@@ -38,9 +38,9 @@ Both scripts will automatically load the data that is included in the `Data/` di
 
 - `run_models_manati_parallel.R` will run models with a single script which uses parallel for loop (with foreach). This script should be submitted to the PBS job scheduler, and in the header of the script the number of cores can be defined (line 3), as well as in the R script (line 93). These numbers should be the same, and if the computer allows, it can be the same as the number of species that are being modelled.  
 
-**Run in parallel (with PBS array)** 
+**Run in parallel (with PBS array)** - *needs to be tested!* -
 
-- `run_models_manati_array.R` will run models with a single script, using PBS array jobs. There is a script `run_array.sh` which should be submitted to the PBS job scheduler. This in turn will run the R script, and PBS will run multiple jobs at the same time (as defined by the *-t* argument from PBS header; 1-10 means that PBS will pass iterator i to the main script from 1 to 10 (same as `for (i in 1:10)`); 1-10%3 means that 3 jobs max can be run at the same time). - *needs to be tested!* -
+- `run_models_manati_array.R` will run models with a single script, using PBS array jobs. There is a script `run_array.sh` which should be submitted to the PBS job scheduler. This in turn will run the R script, and PBS will run multiple jobs at the same time (as defined by the *-t* argument from PBS header; 1-10 means that PBS will pass iterator i to the main script from 1 to 10 (same as `for (i in 1:10)`); 1-10%3 means that 3 jobs max can be run at the same time). 
 
 ## Additional scripts
 
