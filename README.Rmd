@@ -14,13 +14,14 @@ This repository contains data and scripts needed to project the potential distri
 
 To download the scripts you can individually save them, or clone the repository as follows:  
 
-```{git}
+```{git, eval = FALSE}
 git clone https://github.com/mirzacengic/bambu
 ```
 
 This is ideally done in users home directory, otherwise the `processing_directory` variable in the main script might need to be adjusted. From here, the main modeling script should be ready to run (see more details below). To run the script, go to the folder with R scripts `R/`, and submit the script to the PBS scheduler (*note: it might be necessary to install some R packages, although this step should be automatic*).
 
-```{bash, eval = FALSE}
+```{git, eval = FALSE}
+cd
 cd Bambu/R/
 qsub run_models_manati_parallel.R
 ```
