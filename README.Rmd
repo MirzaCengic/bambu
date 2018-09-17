@@ -18,7 +18,13 @@ To download the scripts you can individually save them, or clone the repository 
 git clone https://github.com/mirzacengic/bambu
 ```
 
-This is ideally done in users home directory, otherwise the `processing_directory` variable in the main script might need to be adjusted.  
+This is ideally done in users home directory, otherwise the `processing_directory` variable in the main script might need to be adjusted. From here, the main modeling script should be ready to run (see more details below). To run the script, go to the folder with R scripts `R/`, and submit the script to the PBS scheduler (*note: it might be necessary to install some R packages, although this step should be automatic*).
+
+```{bash, eval = FALSE}
+cd Bambu/R/
+qsub run_models_manati_parallel.R
+```
+
 
 ---
 
@@ -31,6 +37,7 @@ tree -dL 2
 ---  
 
 ## Running the models  
+
 There are two types of the main script - `run_models_manati_*.R`.  
 Both scripts will automatically load the data that is included in the `Data/` directory, create some directories, and run the models where their outputs will be stored in the `Results/` folder.
 
