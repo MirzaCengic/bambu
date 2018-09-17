@@ -4,10 +4,14 @@
 #PBS -l nodes=10
 #PBS -l mem=64gb
 #PBS -l walltime 24:00:00
-#PBS -o /home/mcengic/Bambu/Results/logs/Bambu_parallel.txt
+#PBS -M myemail@gmail.com
+#PBS -m abe
+#PBS -o /home/USERNAME/Bambu/Results/logs/Bambu_parallel.txt
 
+#### Settings to change for the PBS header ####
 # ^^ Change the -o directory above ^^ # 
- 
+# ^^ Change the -M email above ^^ # 
+# ^^ Change the -o USERNAME and directory if needed ^^ # 
 
 # Main script to bamboo distributiosn models - with foreach parallel loop
 
