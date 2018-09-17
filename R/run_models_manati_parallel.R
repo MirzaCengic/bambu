@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 #PBS -N bambu_parallel
-#PBS -l nodes=20
+#PBS -l nodes=10
 #PBS -l mem=64gb
 #PBS -l walltime 24:00:00
 #PBS -o /home/mcengic/Bambu/Results/logs/Bambu_parallel.txt
@@ -9,7 +9,7 @@
 # ^^ Change the -o directory above ^^ # 
  
 
-# Main script to bamboo distribution models - with foreach parallel loop
+# Main script to bamboo distributiosn models - with foreach parallel loop
 
 
 
@@ -18,7 +18,7 @@
 
 # Install pacman package if missing
 # install.packages("pacman")
-pacman::p_load(raster, sf, readr, fasterize, dplyr, usdm,Rahat,
+pacman::p_load(raster, sf, readr, fasterize, dplyr, usdm,
                mapview, biomod2, readxl, stringr, doParallel, foreach)
 
 # Set some parameters -----------------------------------------------------
