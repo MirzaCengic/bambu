@@ -5,6 +5,11 @@
 
 # Install pacman package if missing
 # install.packages("pacman")
+pacman_installed <- require("pacman")
+if (!pacman_installed)
+{
+  install.packages("pacman")
+}
 pacman::p_load(raster, sf, readr, fasterize, dplyr, usdm,
                mapview, biomod2, readxl, stringr, doParallel, foreach)
 
