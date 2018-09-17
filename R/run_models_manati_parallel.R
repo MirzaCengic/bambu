@@ -116,7 +116,6 @@ cat("Getting species data", "\n")
 ###############
 # biomod part #
 ###############
-species = "Chusquea"
 bambu_species_single <- bambu_data %>%
   dplyr::filter(Name_cleaned == species)
 
