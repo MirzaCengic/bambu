@@ -6,8 +6,7 @@ pacman::p_load(raster, tidyverse, mapview)
 
 
 # Set directory that has biomod results
-processing_directory <- "Projects/Bambu" %>%
-  milkunize2()
+processing_directory <- "./Bambu"
 
 biomod_dir <- paste0(processing_directory, "/Results/biomod")
 
@@ -59,3 +58,22 @@ plot(bambusa_peru_wmean)
 
 
 
+# Check the model assessment and variable importance stuff
+
+csvs_folder <- paste0(processing_directory, "/Results/csv")
+
+singel_model_assessment <- csvs_folder %>% 
+  list.files(recursive = TRUE, pattern = "Model_assessment.*.csv", full.names = TRUE) %>% 
+  map(read_csv) %>% 
+  reduce(rbind)
+
+
+ensemble_assessment <- csvs_folder %>% 
+  list.files(recursive = TRUE, pattern = "Ensemble_model_assessment.*.csv", full.names = TRUE) %>% 
+  map(read_csv) %>% 
+  reduce(rbind)
+
+variable_importance <- csvs_folder %>% 
+  list.files(recursive = TRUE, pattern = "varimp.*.csv", full.names = TRUE) %>% 
+  map(read_csv) %>% 
+  reduce(bind_rows)
