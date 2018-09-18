@@ -14,4 +14,4 @@
 # ^^ Change the -M email above ^^ # 
 # ^^ Change the -o USERNAME and directory if needed above and below ^^ # 
 
-Rscript /home/USERNAME/Bambu/R/run_models_manati_array.R -input=file-${PBS_ARRAYID}
+/opt/shared/R-3.4.2/bin/R --vanilla --no-save --args ${PBS_ARRAYID} < /home/USERNAME/Bambu/R/run_models_manati_array.R
